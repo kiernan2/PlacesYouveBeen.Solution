@@ -9,8 +9,8 @@ namespace PlacesYouveBeen.Controllers
     [HttpGet("/places")]
     public ActionResult Index()
     {
-      List<Item> allItems = Item.GetAll();
-      return View(allItems);
+      List<Place> allPlace = Place.GetAll();
+      return View(allPlace);
     }
 
     [Route("/places/new")]
@@ -22,21 +22,21 @@ namespace PlacesYouveBeen.Controllers
     [HttpGet("/places/{id}")]
     public ActionResult Show(int id)
     {
-      Item foundItem = Item.Find(id);
+      Place foundItem = Place.Find(id);
       return View(foundItem);
     }
 
     [HttpPost("/places")]
     public ActionResult Create(string cityName)
     {
-      Item myPlace = new Place(cityName);
+      Place myPlace = new Place(cityName);
       return RedirectToAction("Index");
     }
 
     [HttpPost("/places/delete")]
     public ActionResult DeleteAll()
     {
-      Item.ClearAll();
+      Place.ClearAll();
       return View();
     }
   }
