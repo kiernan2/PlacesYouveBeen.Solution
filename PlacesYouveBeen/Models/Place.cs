@@ -10,6 +10,8 @@ namespace PlacesYouveBeen.Models
     public Place (string cityName)
     {
       CityName = cityName;
+      Time = test;
+      PartySize = partysize;
       _instances.Add(this);
       Id = _instances.Count;
     }
